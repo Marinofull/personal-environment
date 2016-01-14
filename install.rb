@@ -1,6 +1,5 @@
-#The MIT License (MIT)
-#
 #Copyright (c) 2015 Marino Hohenhiem <marino@openmailbox.org, @Marinofull>
+#
 #Special thanks to dotfiles from Nilton Vasques <github.com/niltonvasques/dotfiles>
 #
 #Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -50,5 +49,9 @@ dotfiles_list.each do |dot|
     end
 end
 
+# reorganiza o diretório pro pathogen
+system "cp .vim/autoload/vim-pathogen/autoload/pathogen.vim .vim/autoload/"
+
+# create an alias to search how to do somthing on terminal, without leave the terminal
 system "cat duckit >> #{HOME}/.bashrc"
 
