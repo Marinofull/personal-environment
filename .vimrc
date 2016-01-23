@@ -6,6 +6,9 @@ execute pathogen#helptags()
 syntax on
 filetype plugin indent on
 
+"enable spell"
+"set spell spelllang=pt,en
+
 set t_Co=256
 
 set number
@@ -27,7 +30,7 @@ let g:ctrlp_cmd = 'CtrlP'
 "submodules, and I freaking love it!!!
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
-"Altera o esc para um atalho rapido mais proximo"
+"Altera o esc para um atalho rápido mais próximo"
 inoremap jk <ESC>
 inoremap kj <ESC>
 

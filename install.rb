@@ -38,6 +38,9 @@ dotfiles_list.each do |dot|
     if File.file?(dest_file) || File.directory?(dest_file) || File.symlink?(dest_file)
         puts "#{dest_file} exists and will be erased."
         if are_you_sure?
+            system "mkdir -p backup/"
+            puts "cp -R #{dest_file} backup/"
+            system "cp -R #{dest_file} backup/"
             puts "rm -Rf #{dest_file}"
             system "rm -Rf #{dest_file}"
             puts "Creating symlink #{dest_file} -> #{dot}"

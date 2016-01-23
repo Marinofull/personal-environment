@@ -7,3 +7,6 @@
 [submodule ".vim/autoload/vim-pathogen"]
 	path = .vim/autoload/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
+[submodule ".vim/bundle/vim-windowswap"]
+	path = .vim/bundle/vim-windowswap
+	url = https://github.com/wesQ3/vim-windowswap
