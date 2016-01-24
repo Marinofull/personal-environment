@@ -1,0 +1,4 @@
+
+vimspell () { vim -c 'set spell spelllang="$@"'; }
+
+duckit () { w3m duckduckgo.com/?q="$@"; }

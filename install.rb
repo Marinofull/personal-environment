@@ -56,5 +56,5 @@ end
 system "cp .vim/autoload/vim-pathogen/autoload/pathogen.vim .vim/autoload/"
 
 # create an alias to search how to do somthing on terminal, without leave the terminal
-system "cat duckit >> #{HOME}/.bashrc"
+system "cat aliases >> #{HOME}/.bashrc"
 
