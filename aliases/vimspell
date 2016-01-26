@@ -1,0 +1,3 @@
+#set a alias to vim on spell mode, the language must be passed as a parameter [pt, en]
+vimspell () { vim -c 'set spell spelllang="$@"'; }
+
