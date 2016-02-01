@@ -10,3 +10,6 @@
 [submodule ".vim/bundle/vim-windowswap"]
 	path = .vim/bundle/vim-windowswap
 	url = https://github.com/wesQ3/vim-windowswap
+[submodule ".tmux/plugins/tpm"]
+	path = .tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
