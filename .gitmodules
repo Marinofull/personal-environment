@@ -16,3 +16,6 @@
 [submodule ".tmux/plugins/tmux-battery"]
 	path = .tmux/plugins/tmux-battery
 	url = https://github.com/tmux-plugins/tmux-battery
+[submodule ".vim/bundle/vim-gitgutter"]
+	path = .vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
