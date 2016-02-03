@@ -25,6 +25,11 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'rw'
 
+"vim airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'molokai'
+let g:airline#extensions#tabline#enabled = 1
+
 "aparetly it should only ignores files in .gitignore, but I dont know what the
 "hell on earth it is showing other dotfiles to, stoping in .folder that are
 "submodules, and I freaking love it!!!

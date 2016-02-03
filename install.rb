@@ -32,6 +32,12 @@ def dotfiles_list
     dotfiles -= dotfiles.select{ |dot| dot[/.git/] || dot[/.swp/] }
 end
 
+puts "I'm going to freaking initialize every fuckin subrepo!"
+if are_you_sure?
+    puts "git update --init --recursive"
+    system "git update --init --recursive"
+end
+
 dotfiles_list.each do |dot|
     dest_file = "#{HOME}/#{dot}"
     dot = "#{Dir.pwd}/#{dot}"
