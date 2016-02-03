@@ -15,7 +15,7 @@ Plugins
 Hacks and Tricks
 -------------
 
-Informations 
+Informations
 -------------
 
 >

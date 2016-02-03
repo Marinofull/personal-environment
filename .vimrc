@@ -19,6 +19,8 @@ set shiftwidth=4
 set expandtab
 set autoindent
 
+colorscheme desert
+
 "configura o plugin CtrlP"
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
@@ -29,6 +31,7 @@ let g:ctrlp_working_path_mode = 'rw'
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'molokai'
 let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
 
 "vim-gitgutter
 "You can jump between hunks with [c and ]c. You can preview, stage, and revert
