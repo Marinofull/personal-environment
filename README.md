@@ -8,9 +8,10 @@ To configure types:
 `$ ruby install.rb`
 
 
-
 Plugins
 -------
+
+- [powerline](http://www.tecmint.com/powerline-adds-powerful-statuslines-and-prompts-to-vim-and-bash/)
 
 Hacks and Tricks
 -------------
