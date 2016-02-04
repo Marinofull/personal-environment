@@ -32,7 +32,7 @@ def dotfiles_list
     dotfiles -= dotfiles.select{ |dot| dot[/.git/] || dot[/.swp/] }
 end
 
-puts "I'm going to freaking initialize every fuckin subrepo!"
+puts "I'm going to freaking initialize every fucking subrepo!"
 if are_you_sure?
     puts "git update --init --recursive"
     system "git update --init --recursive"

@@ -19,7 +19,9 @@ set shiftwidth=4
 set expandtab
 set autoindent
 
-colorscheme desert
+"colorscheme desert
+"colorscheme ron
+colorscheme elflord
 
 "configura o plugin CtrlP"
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -32,6 +34,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'molokai'
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
+set showtabline=2
 
 "vim-gitgutter
 "You can jump between hunks with [c and ]c. You can preview, stage, and revert
@@ -39,7 +42,7 @@ set laststatus=2
 "nmap ]h <Plug>GitGutterNextHunk
 "nmap [h <Plug>GitGutterPrevHunk
 set updatetime=250
-let g:gitgutter_realtime = 0
+"let g:gitgutter_realtime = 0
 
 "aparetly it should only ignores files in .gitignore, but I dont know what the
 "hell on earth it is showing other dotfiles to, stoping in .folder that are
