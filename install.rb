@@ -58,9 +58,26 @@ dotfiles_list.each do |dot|
     end
 end
 
+system "mkdir -p tmp"
+
 # reorganiza o diretório pro pathogen
 system "cp .vim/autoload/vim-pathogen/autoload/pathogen.vim .vim/autoload/"
 
 # create an alias to search how to do somthing on terminal, without leave the terminal
 # system "cat aliases >> #{HOME}/.bashrc"
 
+puts "we gonna install the fucking awesome tool: powerline! This may need a sudo permission"
+if are_you_sure?
+    puts    "pip install --user powerline-status"
+    system  "pip install --user powerline-status"
+    puts    "wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf"
+    system  "wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf"
+    puts    "wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf"
+    system  "wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf"
+    puts    "mv PowerlineSymbols.otf /usr/share/fonts/"
+    system  "mv PowerlineSymbols.otf /usr/share/fonts/"
+    puts    "fc-cache -vf /usr/share/fonts/"
+    system  "fc-cache -vf /usr/share/fonts/"
+    puts    "mv 10-powerline-symbols.conf /etc/fonts/conf.d/"
+    system  "mv 10-powerline-symbols.conf /etc/fonts/conf.d/"
+end
