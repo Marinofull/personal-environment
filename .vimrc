@@ -13,7 +13,10 @@ set t_Co=256
 
 set number
 set hlsearch
+"highlight ExtraWhitespace ctermbg=red guibg=red
+"au ColorScheme * highlight ExtraWhitespace guibg=red
 
+"Convert tab to spaces and indent w/ same number of spaces
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -49,6 +52,10 @@ set updatetime=250
 "submodules, and I freaking love it!!!
 "let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_user_command = 'find %s -type f'
+
+
+"Markdown to HTML
+"nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
 
 "Altera o esc para um atalho rápido mais próximo"
 inoremap jk <ESC>
