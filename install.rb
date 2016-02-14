@@ -1,6 +1,6 @@
-#Copyright (c) 2015 Marino Hohenhiem <marino@openmailbox.org, @Marinofull>
+#The MIT License (MIT)
 #
-#Special thanks to dotfiles from Nilton Vasques <github.com/niltonvasques/dotfiles>
+#Copyright (c) 2015 Marino Hohenhiem <marino@openmailbox.org, @Marinofull>
 #
 #Permission is hereby granted, free of charge, to any person obtaining a copy
 #of this software and associated documentation files (the "Software"), to deal
@@ -19,6 +19,8 @@
 #LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
+#
+#Special thanks to dotfiles from Nilton Vasques <github.com/niltonvasques/dotfiles>
 
 HOME = ENV['HOME']
 
