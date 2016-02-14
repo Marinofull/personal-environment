@@ -27,9 +27,10 @@ set autoindent
 colorscheme elflord
 
 "configura o plugin CtrlP"
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+"pelo visto n precisa mais disso em baixo quando usa o pathogen
+"set runtimepath^=~/.vim/bundle/ctrlp.vim
+"let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'rw'
 
 "vim airline
@@ -56,6 +57,8 @@ let g:ctrlp_user_command = 'find %s -type f'
 
 "Markdown to HTML
 "nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
+let g:instant_markdown_autostart = 0
+nnoremap <Leader>p :InstantMarkdownPreview<CR>
 
 "Altera o esc para um atalho rápido mais próximo"
 inoremap jk <ESC>

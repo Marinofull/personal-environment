@@ -34,8 +34,8 @@ end
 
 puts "I'm going to freaking initialize every fucking subrepo!"
 if are_you_sure?
-    puts "git update --init --recursive"
-    system "git update --init --recursive"
+    puts "git submodule update --init --recursive"
+    system "git submodule update --init --recursive"
 end
 
 dotfiles_list.each do |dot|
@@ -58,12 +58,26 @@ dotfiles_list.each do |dot|
     end
 end
 
+puts "Do you want to install the Instant-Markdown plugin?"
+puts "This is a plugins not tracked by pathogen and require Node.js and xdg-utils package, type y if you want to procede"
+if are_you_sure?
+    puts    "Do you want to install instant-markdown-d via npm? (this may require sudo)"
+    if are_you_sure?
+        puts    "npm -g install instant-markdown-d"
+        system  "npm -g install instant-markdown-d"
+    end
+    puts    "cp -r .vim/tmp/vim-instant-markdown/after/ .vim/"
+    system  "cp -r .vim/tmp/vim-instant-markdown/after/ .vim/"
+end
+
 system "mkdir -p tmp"
 
 # reorganiza o diretório pro pathogen
 system "cp .vim/autoload/vim-pathogen/autoload/pathogen.vim .vim/autoload/"
 
 # create an alias to search how to do somthing on terminal, without leave the terminal
+# >>> I want a way to append a file in aliases only once <<<
+# >>> perhaps using the methods map and reduce <<<
 # system "cat aliases >> #{HOME}/.bashrc"
 
 puts "we gonna install the fucking awesome tool: powerline! This may need a sudo permission"
