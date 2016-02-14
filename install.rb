@@ -30,6 +30,7 @@ end
 def dotfiles_list
     dotfiles = Dir['.*'] - ['.', '..']
     dotfiles -= dotfiles.select{ |dot| dot[/.git/] || dot[/.swp/] }
+    dotfiles += ['.gitconfig']
 end
 
 puts "I'm going to freaking initialize every fucking subrepo!"
