@@ -1,0 +1,7 @@
+$ sudo ifconfig eth0 down
+
+$ sudo macchager -m AA:BB:CC:DD:EE:FF eth0
+or
+$ sudo macchager -r eth0
+
+$ sudo ifconfig eth0 up
