@@ -82,6 +82,8 @@ system "cp .vim/autoload/vim-pathogen/autoload/pathogen.vim .vim/autoload/"
 # >>> I want a way to append a file in aliases only once <<<
 # >>> perhaps using the methods map and reduce <<<
 # system "cat aliases >> #{HOME}/.bashrc"
+# IO.readlines('file').map(&:strip).include?('alias')
+# this instance returns a true value if file has alias
 
 puts "we gonna install the fucking awesome tool: powerline! This may need a sudo permission"
 if are_you_sure?
