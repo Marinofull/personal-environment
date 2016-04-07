@@ -55,6 +55,12 @@ colorscheme elflord
 "let g:ctrlp_map = '<c-p>'
 "let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'rw'
+"let g:ctrlp_user_command = 'find %s -type f'
+"
+"aparetly it should only ignores files in .gitignore, but I dont know what the
+"hell on earth it is showing other dotfiles to, stoping in .folder that are
+"submodules, and I freaking love it!!!
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 "vim airline
 let g:airline_powerline_fonts = 1
@@ -71,17 +77,20 @@ set showtabline=2
 set updatetime=250
 "let g:gitgutter_realtime = 0
 
-"aparetly it should only ignores files in .gitignore, but I dont know what the
-"hell on earth it is showing other dotfiles to, stoping in .folder that are
-"submodules, and I freaking love it!!!
-"let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:ctrlp_user_command = 'find %s -type f'
-
+"vim-fugitive
+"remap the Gstatus command
+nnoremap <Leader>st :Gstatus<CR>
+"remap the Gcommit command
+nnoremap <Leader>cm :Gcommit<CR>
 
 "Markdown to HTML
 "nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
 let g:instant_markdown_autostart = 0
 nnoremap <Leader>p :InstantMarkdownPreview<CR>
+
+"remap change tabs
+nnoremap <C-j> :tabprevious<CR>
+nnoremap <C-k> :tabnext<CR>
 
 "Altera o esc para um atalho rápido mais próximo"
 inoremap jk <ESC>
