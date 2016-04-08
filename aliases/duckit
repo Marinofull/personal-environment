@@ -1,2 +1,0 @@
-# create an alias to search how to do somthing on terminal, without leave the terminal
-duckit () { w3m duckduckgo.com/?q="$@"; }
