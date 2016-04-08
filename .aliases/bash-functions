@@ -4,10 +4,6 @@
 # create an alias to search how to do somthing on terminal, without leave the terminal
 duckit () { w3m duckduckgo.com/?q="$@"; }
 
-#set a alias to vim on spell mode, the language must be passed as a parameter [pt, en]
-vimspell () { vim -c 'set spell spelllang="$@"'; }
-
-
 # extract any archive format
 # orrsella/dotfiles on github
 extract() {
