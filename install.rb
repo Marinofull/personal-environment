@@ -41,23 +41,26 @@ if are_you_sure?
     system "git submodule update --init --recursive"
 end
 
-dotfiles_list.each do |dot|
-    dest_file = "#{HOME}/#{dot}"
-    dot = "#{Dir.pwd}/#{dot}"
-    if File.file?(dest_file) || File.directory?(dest_file) || File.symlink?(dest_file)
-        puts "#{dest_file} exists and will be erased."
-        if are_you_sure?
-            system "mkdir -p backup/"
-            puts "cp -R #{dest_file} backup/"
-            system "cp -R #{dest_file} backup/"
-            puts "rm -Rf #{dest_file}"
-            system "rm -Rf #{dest_file}"
+puts "Would you like to install the default dotfiles like .vim, .tmux and some cool aliases?"
+if are_you_sure?
+    dotfiles_list.each do |dot|
+        dest_file = "#{HOME}/#{dot}"
+        dot = "#{Dir.pwd}/#{dot}"
+        if File.file?(dest_file) || File.directory?(dest_file) || File.symlink?(dest_file)
+            puts "#{dest_file} exists and will be erased."
+            if are_you_sure?
+                system "mkdir -p backup/"
+                puts "cp -R #{dest_file} backup/"
+                system "cp -R #{dest_file} backup/"
+                puts "rm -Rf #{dest_file}"
+                system "rm -Rf #{dest_file}"
+                puts "Creating symlink #{dest_file} -> #{dot}"
+                File.symlink(dot, dest_file)
+            end
+        else
             puts "Creating symlink #{dest_file} -> #{dot}"
             File.symlink(dot, dest_file)
         end
-    else
-        puts "Creating symlink #{dest_file} -> #{dot}"
-        File.symlink(dot, dest_file)
     end
 end
 
@@ -75,15 +78,17 @@ end
 
 system "mkdir -p tmp"
 
-# reorganiza o diretório pro pathogen
+# reorganizes the pathogen directory
 system "cp .vim/autoload/vim-pathogen/autoload/pathogen.vim .vim/autoload/"
 
-# create an alias to search how to do somthing on terminal, without leave the terminal
-# >>> I want a way to append a file in aliases only once <<<
-# >>> perhaps using the methods map and reduce <<<
-# system "cat aliases >> #{HOME}/.bashrc"
 # IO.readlines('file').map(&:strip).include?('alias')
 # this instance returns a true value if file has alias
+
+if !(IO.readlines(HOME + '/.bash_profile').map(&:strip).include?('#personal-functions'))
+    system "echo '' >> ~/.bash_profile"
+    system "echo '#personal-functions' >> ~/.bash_profile"
+    system "echo '[[ -s \"$HOME/.aliases/append-bash\" ]] && source \"$HOME/.aliases/append-bash\"' >> ~/.bash_profile"
+end
 
 puts "we gonna install the fucking awesome tool: powerline! This may need a sudo permission"
 if are_you_sure?

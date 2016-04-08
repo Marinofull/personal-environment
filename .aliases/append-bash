@@ -1,0 +1,6 @@
+#! /bin/bash
+
+for BASHES in $(ls ~/.aliases/bash-*)
+do
+    [ -f "$BASHES" ] && source "$BASHES"
+done
