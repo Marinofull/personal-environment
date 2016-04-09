@@ -64,6 +64,28 @@ if are_you_sure?
     end
 end
 
+puts "Would you like to install the sublime-text snippets?"
+if are_you_sure?
+    folder = "snippets"
+    dest = "#{HOME}/.config/sublime-text-3/Packages/User/#{folder}"
+    orig = "#{Dir.pwd}/#{folder}"
+    if File.directory?(dest) || File.symlink?(dest)
+        puts "#{dest} exists and will be erased."
+        if are_you_sure?
+            system "mkdir -p backup/"
+            puts "cp -R #{dest} backup/"
+            system "cp -R #{dest} backup/"
+            puts "rm -Rf #{dest}"
+            system "rm -Rf #{dest}"
+            puts "Creating symlink #{dest} -> #{orig}"
+            File.symlink(orig, dest)
+        end
+    else
+        puts "Creating symlink #{dest} -> #{orig}"
+        File.symlink(orig, dest)
+    end
+end
+
 puts "Do you want to install the Instant-Markdown plugin?"
 puts "This is a plugins not tracked by pathogen and require Node.js and xdg-utils package, type y if you want to procede"
 if are_you_sure?
