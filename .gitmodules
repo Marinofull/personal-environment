@@ -28,3 +28,6 @@
 [submodule ".vim/tmp/vim-instant-markdown"]
 	path = .vim/tmp/vim-instant-markdown
 	url = https://github.com/suan/vim-instant-markdown
+[submodule ".vim/bundle/emmet-vim"]
+	path = .vim/bundle/emmet-vim
+	url = https://github.com/mattn/emmet-vim

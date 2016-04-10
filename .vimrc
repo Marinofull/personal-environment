@@ -75,6 +75,13 @@ set showtabline=2
 set updatetime=250
 "let g:gitgutter_realtime = 0
 
+"Emmet setup
+"type <C-e>, to activate it
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+"Redefining Emmet trigger key
+let g:user_emmet_leader_key='<C-e>'
+
 "vim-fugitive
 "remap the Gstatus command
 nnoremap <Leader>st :Gstatus<CR>
