@@ -13,6 +13,24 @@ Plugins
 
 - [powerline](http://www.tecmint.com/powerline-adds-powerful-statuslines-and-prompts-to-vim-and-bash/)
 
+####Vim Plugins
+
+- Emmet-vim:
+    - Expand an Abbreviation. Type the abbreviation as `div>p#foo$*3>a` and type `<c-e>,`.
+```html
+    <div>
+        <p id="foo1">
+            <a href=""></a>
+        </p>
+        <p id="foo2">
+            <a href=""></a>
+        </p>
+        <p id="foo3">
+            <a href=""></a>
+        </p>
+    </div>
+```
+
 Hacks and Tricks
 -------------
 
