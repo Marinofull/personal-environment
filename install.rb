@@ -106,10 +106,15 @@ system "cp .vim/autoload/vim-pathogen/autoload/pathogen.vim .vim/autoload/"
 # IO.readlines('file').map(&:strip).include?('alias')
 # this instance returns a true value if file has alias
 
-if !(IO.readlines(HOME + '/.bash_profile').map(&:strip).include?('#personal-functions'))
-    system "echo '' >> ~/.bash_profile"
-    system "echo '#personal-functions' >> ~/.bash_profile"
-    system "echo '[[ -s \"$HOME/.aliases/append-bash\" ]] && source \"$HOME/.aliases/append-bash\"' >> ~/.bash_profile"
+puts "we gonna append some alias on .bash_profile"
+if are_you_sure?
+    if !(IO.readlines(HOME + '/.bash_profile').map(&:strip).include?('#personal-functions'))
+        system "echo '' >> ~/.bash_profile"
+        system "echo '#personal-functions' >> ~/.bash_profile"
+        system "echo '[[ -s \"$HOME/.aliases/append-bash\" ]] && source \"$HOME/.aliases/append-bash\"' >> ~/.bash_profile"
+    else
+        puts "you alredy have it, the string '#personal-functions' in your .bash_profile shows where it begins"
+    end
 end
 
 puts "we gonna install the fucking awesome tool: powerline! This may need a sudo permission"

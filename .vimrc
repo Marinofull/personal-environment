@@ -58,7 +58,7 @@ colorscheme elflord
 "
 "Prety command to search files trackeds and untrackeds by git. It stopes in folders that are
 "submodules, and I freaking love it!!!
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp']
 
 "vim airline
 let g:airline_powerline_fonts = 1
@@ -78,7 +78,7 @@ set updatetime=250
 "Emmet setup
 "type <C-e>, to activate it
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+autocmd FileType html,phtml,php,inc,css EmmetInstall
 "Redefining Emmet trigger key
 let g:user_emmet_leader_key='<C-e>'
 
