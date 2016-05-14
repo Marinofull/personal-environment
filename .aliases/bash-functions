@@ -42,3 +42,14 @@ killit() {
     ps aux | grep -v "grep" | grep "$@" | awk '{print $2}' | xargs sudo kill
 }
 
+# configure author of git repo
+marinoit() {
+    git config user.name Marinofull
+    git config user.email intmarinoreturn0@gmail.com
+}
+
+# configure keyboard free of emmac's pinky and run tmux
+run-nice-keyboard() {
+    setxkbmap -option ctrl:swapcaps
+    tmux
+}
