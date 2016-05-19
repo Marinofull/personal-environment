@@ -59,6 +59,8 @@ colorscheme elflord
 "Prety command to search files trackeds and untrackeds by git. It stopes in folders that are
 "submodules, and I freaking love it!!!
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp']
+" git ls-files to list files of the repository, -c common files(tracked) -o
+" (other, untracked) -x (ignore files listed) *.swp(list all .swp)
 
 "vim airline
 let g:airline_powerline_fonts = 1
