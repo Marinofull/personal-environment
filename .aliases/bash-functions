@@ -42,6 +42,10 @@ killit() {
     ps aux | grep -v "grep" | grep "$@" | awk '{print $2}' | xargs sudo kill
 }
 
+mergeit() {
+    pr -m -t $1 $2 > $3
+}
+
 # configure author of git repo
 marinoit() {
     git config user.name Marinofull
