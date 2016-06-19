@@ -36,6 +36,8 @@ set t_Co=256
 
 set number
 set hlsearch
+"highlight ExtraWhitespace ctermbg=red guibg=red
+"au ColorScheme * highlight ExtraWhitespace guibg=red
 
 "Convert tab to spaces and indent w/ same number of spaces
 set tabstop=4
@@ -102,4 +104,4 @@ inoremap jk <ESC>
 inoremap kj <ESC>
 
 "clean ExtraWhitespaces and save
-map W :%s/\s\+$//e<CR> :w<CR>
+map W :%s/\s\+$//e<CR>:w<CR>
