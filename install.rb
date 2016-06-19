@@ -92,7 +92,7 @@ if are_you_sure?
     puts    "Do you want to install instant-markdown-d via npm? (this may require sudo)"
     if are_you_sure?
         puts    "npm -g install instant-markdown-d"
-        system  "npm -g install instant-markdown-d"
+        system  "sudo npm -g install instant-markdown-d"
     end
     puts    "cp -r .vim/tmp/vim-instant-markdown/after/ .vim/"
     system  "cp -r .vim/tmp/vim-instant-markdown/after/ .vim/"
@@ -126,9 +126,9 @@ if are_you_sure?
     puts    "wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf"
     system  "wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf"
     puts    "mv PowerlineSymbols.otf /usr/share/fonts/"
-    system  "mv PowerlineSymbols.otf /usr/share/fonts/"
+    system  "sudo mv PowerlineSymbols.otf /usr/share/fonts/"
     puts    "fc-cache -vf /usr/share/fonts/"
-    system  "fc-cache -vf /usr/share/fonts/"
+    system  "sudo fc-cache -vf /usr/share/fonts/"
     puts    "mv 10-powerline-symbols.conf /etc/fonts/conf.d/"
-    system  "mv 10-powerline-symbols.conf /etc/fonts/conf.d/"
+    system  "sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/"
 end

@@ -16,7 +16,7 @@ Plugins
 ####Vim Plugins
 
 - Emmet-vim:
-    - Expand an Abbreviation. Type the abbreviation as `div>p#foo$*3>a` and type `<c-e>,`.
+    - Expand an Abbreviation. Type the abbreviation as `div>p#foo$*3>a` and type `<c-e>,`;
 ```html
     <div>
         <p id="foo1">
@@ -29,6 +29,25 @@ Plugins
             <a href=""></a>
         </p>
     </div>
+```
+- To freaking comment.
+  Move cursor to block
+```html
+  <div>
+      hello world
+  </div>
+```
+  Type `<C-y>/` in insert mode.
+```html
+  <!-- <div>
+      hello world
+  </div> -->
+```
+  Type `<C-y>/` in there again.
+```html
+  <div>
+      hello world
+  </div>
 ```
 
 Hacks and Tricks
