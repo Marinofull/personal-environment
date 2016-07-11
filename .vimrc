@@ -58,7 +58,7 @@ colorscheme elflord
 "
 "Prety command to search files trackeds and untrackeds by git. It stopes in folders that are
 "submodules, and I freaking love it!!!
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp -x node_modules']
 " git ls-files to list files of the repository, -c common files(tracked) -o
 " (other, untracked) -x (ignore files listed) *.swp(list all .swp)
 
@@ -80,7 +80,7 @@ set updatetime=250
 "Emmet setup
 "type <C-e>, to activate it
 let g:user_emmet_install_global = 0
-autocmd FileType html,phtml,php,inc,css EmmetInstall
+autocmd FileType html,phtml,php,inc,md,mdown,css,scss EmmetInstall
 "Redefining Emmet trigger key
 let g:user_emmet_leader_key='<C-e>'
 
@@ -94,6 +94,9 @@ nnoremap <Leader>cm :Gcommit<CR>
 "nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
 let g:instant_markdown_autostart = 0
 nnoremap <Leader>p :InstantMarkdownPreview<CR>
+
+" syntax
+autocmd FileType html set syntax=liquid
 
 "remap change tabs
 nnoremap <C-j> :tabprevious<CR>
