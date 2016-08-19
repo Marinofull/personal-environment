@@ -47,7 +47,7 @@ set autoindent
 
 "colorscheme desert
 "colorscheme ron
-colorscheme elflord
+colorscheme koehler
 
 "configura o plugin CtrlP"
 "pelo visto n precisa mais disso em baixo quando usa o pathogen
@@ -102,9 +102,19 @@ autocmd FileType html set syntax=liquid
 nnoremap <C-j> :tabprevious<CR>
 nnoremap <C-k> :tabnext<CR>
 
+
+"snippets
+"let g:UltiSnipsUsePythonVersion=2
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-g>"
+
+"split
+let g:UltiSnipsEditSplit="vertical"
+
 "Altera o esc para um atalho rápido mais próximo"
 inoremap jk <ESC>
 inoremap kj <ESC>
 
 "clean ExtraWhitespaces and save
-map W :%s/\s\+$//e<CR>:w<CR>
+nmap W :%s/\s\+$//e<CR>:w<CR>
