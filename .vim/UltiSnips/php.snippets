@@ -1,0 +1,25 @@
+snippet php "php tag"
+<?php $1 ?>
+endsnippet
+
+snippet @fun "Elixer prety function"
+@$1 ($2)
+	$3
+@end$1
+endsnippet
+
+snippet @sec "Elixer Section"
+@section ('$1')
+	$2
+@stop
+endsnippet
+
+snippet @ext "Elixer Extends"
+@extends ('$1')
+endsnippet
+
+snippet func "Function or Method"
+${1:public} ${3:name}($4){
+	$5
+}
+endsnippet

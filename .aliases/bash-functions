@@ -49,11 +49,16 @@ mergeit() {
 # configure author of git repo
 marinoit() {
     git config user.name Marinofull
-    git config user.email intmarinoreturn0@gmail.com
+    git config user.email Marinofull@users.noreply.github.com
 }
 
 # configure keyboard free of emmac's pinky and run tmux
 run-nice-keyboard() {
     setxkbmap -option ctrl:swapcaps
     tmux
+}
+
+# copy to graphic clipboard
+copy() {
+    xclip -selection clipboard $1
 }

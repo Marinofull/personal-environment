@@ -47,7 +47,7 @@ set autoindent
 
 "colorscheme desert
 "colorscheme ron
-colorscheme elflord
+colorscheme koehler
 
 "configura o plugin CtrlP"
 "pelo visto n precisa mais disso em baixo quando usa o pathogen
@@ -58,7 +58,7 @@ colorscheme elflord
 "
 "Prety command to search files trackeds and untrackeds by git. It stopes in folders that are
 "submodules, and I freaking love it!!!
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp -x node_modules']
 " git ls-files to list files of the repository, -c common files(tracked) -o
 " (other, untracked) -x (ignore files listed) *.swp(list all .swp)
 
@@ -80,7 +80,7 @@ set updatetime=250
 "Emmet setup
 "type <C-e>, to activate it
 let g:user_emmet_install_global = 0
-autocmd FileType html,phtml,php,inc,css EmmetInstall
+autocmd FileType html,phtml,php,inc,md,mdown,css,scss EmmetInstall
 "Redefining Emmet trigger key
 let g:user_emmet_leader_key='<C-e>'
 
@@ -95,13 +95,26 @@ nnoremap <Leader>cm :Gcommit<CR>
 let g:instant_markdown_autostart = 0
 nnoremap <Leader>p :InstantMarkdownPreview<CR>
 
+" syntax
+autocmd FileType html set syntax=liquid
+
 "remap change tabs
 nnoremap <C-j> :tabprevious<CR>
 nnoremap <C-k> :tabnext<CR>
+
+
+"snippets
+"let g:UltiSnipsUsePythonVersion=2
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-g>"
+
+"split
+let g:UltiSnipsEditSplit="vertical"
 
 "Altera o esc para um atalho rápido mais próximo"
 inoremap jk <ESC>
 inoremap kj <ESC>
 
 "clean ExtraWhitespaces and save
-map W :%s/\s\+$//e<CR>:w<CR>
+nmap W :%s/\s\+$//e<CR>:w<CR>

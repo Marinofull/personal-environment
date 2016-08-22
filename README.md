@@ -7,6 +7,8 @@ The environment is builded by `install.rb` which set symlinks to .files inside t
 To configure types:
 `$ ruby install.rb`
 
+Open the `.gitconfig` and `.aliases/bash-functions` and change your github user and e-mail.
+
 
 Plugins
 -------
