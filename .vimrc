@@ -63,9 +63,9 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp -x node_
 " (other, untracked) -x (ignore files listed) *.swp(list all .swp)
 
 "vim airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'solarized'
-let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 2
+let g:airline_theme = 'molokai'
+"let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 set showtabline=2
 
