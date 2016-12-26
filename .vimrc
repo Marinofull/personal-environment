@@ -80,9 +80,9 @@ set updatetime=250
 "Emmet setup
 "type <C-e>, to activate it
 let g:user_emmet_install_global = 0
-autocmd FileType html,phtml,php,inc,md,mdown,css,scss EmmetInstall
 "Redefining Emmet trigger key
 let g:user_emmet_leader_key='<C-e>'
+autocmd FileType html,phtml,php,eruby,inc,md,mdown,css,scss EmmetInstall
 
 "vim-fugitive
 "remap the Gstatus command
@@ -111,6 +111,26 @@ let g:UltiSnipsJumpBackwardTrigger="<c-g>"
 
 "split
 let g:UltiSnipsEditSplit="vertical"
+
+"My functions
+"===========
+
+"rename a file and still in the same buffer
+"If the file is versioned by Git and you have vim-fugitive, a better way is use:
+":Gmove new_name
+"In case it wasnt yet added to git repo type a :Gwrite before
+function Hrename(var)
+    let old_name = expand('%')
+    let new_name = a:var
+    if new_name != '' && new_name != old_name
+        bd
+        execute "!mv ".old_name." ".new_name
+        execute "e ".new_name
+    endif
+endfunction
+
+command! -nargs=1 -complete=file Hrename :call Hrename(<f-args>)
+
 
 "Altera o esc para um atalho rápido mais próximo"
 inoremap jk <ESC>
