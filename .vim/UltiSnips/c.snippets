@@ -1,0 +1,26 @@
+snippet include "library include"
+#include <$1>
+endsnippet
+
+snippet main "main schema function"
+int main($1) {
+    ${2://code}
+    return 0;
+}
+endsnippet
+
+snippet typedef "structures"
+typedef struct $1 {
+    $2
+}$1;
+endsnippet
+
+snippet prot "prototype function"
+${1:void} ${2:funcname}($3);
+endsnippet
+
+snippet func "function"
+${1:void} ${2:funcname}($3) {
+    $4
+}
+endsnippet

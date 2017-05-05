@@ -34,3 +34,9 @@
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips
+[submodule ".vim/bundle/edit-slack.vim"]
+	path = .vim/bundle/edit-slack.vim
+	url = https://github.com/yaasita/edit-slack.vim
+[submodule ".vim/bundle/vim-move"]
+	path = .vim/bundle/vim-move
+	url = https://github.com/matze/vim-move

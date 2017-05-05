@@ -29,13 +29,25 @@ execute pathogen#helptags()
 syntax on
 filetype plugin indent on
 
+" fix meta-keys which generate <Esc>a .. <Esc>z on gnome terminal
+set <A-k>=k
+set <A-j>=j
+nmap k <A-k>
+nmap j <A-j>
+vmap k <A-k>
+vmap j <A-j>
+
+
 "enable spell"
 "set spell spelllang=pt,en
 
 set t_Co=256
+set fileencodings+=utf-8
+set encoding=utf-8
 
-set number
+set relativenumber
 set hlsearch
+set noic "don't ignore letter case, ex. in searching
 "highlight ExtraWhitespace ctermbg=red guibg=red
 "au ColorScheme * highlight ExtraWhitespace guibg=red
 
@@ -44,6 +56,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
+"retab
 
 "colorscheme desert
 "colorscheme ron
@@ -63,7 +76,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp -x node_
 " (other, untracked) -x (ignore files listed) *.swp(list all .swp)
 
 "vim airline
-let g:airline_powerline_fonts = 2
+let g:airline_powerline_fonts = 1
 let g:airline_theme = 'molokai'
 "let g:airline#extensions#tabline#enabled = 1
 set laststatus=2

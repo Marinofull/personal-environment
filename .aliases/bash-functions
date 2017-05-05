@@ -12,7 +12,7 @@ extract() {
             *.tar.bz2)  tar xvjf $1      ;;
             *.tar.gz)   tar xvzf $1      ;;
             *.bz2)      bunzip2 $1      ;;
-            *.rar)      unrar xv $1      ;;
+            *.rar)      unrar x $1      ;;
             *.gz)       gunzip $1       ;;
             *.tar)      tar xvf $1       ;;
             *.tbz2)     tar xvjf $1      ;;
@@ -61,4 +61,8 @@ run-nice-keyboard() {
 # copy to graphic clipboard
 copy() {
     xclip -selection clipboard $1
+}
+
+runflux() {
+    xflux -l 0 -g 0 -k 3400 # flux
 }
