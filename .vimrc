@@ -49,7 +49,6 @@ set encoding=utf-8
 
 set nu
 set relativenumber
-set hlsearch
 set noic "don't ignore letter case, ex. in searching
 "highlight ExtraWhitespace ctermbg=red guibg=red
 "au ColorScheme * highlight ExtraWhitespace guibg=red
@@ -85,9 +84,21 @@ set showtabline=2
 set updatetime=250
 
 "easy-motion
-map / <Plug>(incsearch-easymotion-/)
-map ? <Plug>(incsearch-easymotion-?)
-map g/ <Plug>(incsearch-easymotion-stay)
+nmap /         <Plug>(easymotion-sn)
+omap /         <Plug>(easymotion-sn)
+xmap /         <Plug>(easymotion-sn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+" Move to line
+map <Leader>l <Plug>(easymotion-bd-jk)
+nmap <Leader>l <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+let g:EasyMotion_smartcase = 1
 
 "Emmet setup
 "type <C-e>, to activate it
@@ -145,8 +156,7 @@ command! -nargs=1 -complete=file Hrename :call Hrename(<f-args>)
 
 
 "Altera o esc para um atalho rápido mais próximo"
-inoremap jk <ESC>
-inoremap kj <ESC>
+inoremap jj <ESC>
 
 "clean ExtraWhitespaces and save
 nmap W :%s/\s\+$//e<CR>:w<CR>
