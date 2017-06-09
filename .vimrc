@@ -37,6 +37,8 @@ nmap j <A-j>
 vmap k <A-k>
 vmap j <A-j>
 
+"to make CTRL-A and CTRL-X work on non-alphanumeric ASCII values.
+set nrformats+=alpha
 
 "enable spell"
 "set spell spelllang=pt,en
@@ -45,6 +47,7 @@ set t_Co=256
 set fileencodings+=utf-8
 set encoding=utf-8
 
+set nu
 set relativenumber
 set hlsearch
 set noic "don't ignore letter case, ex. in searching
@@ -63,12 +66,6 @@ set autoindent
 colorscheme koehler
 
 "configura o plugin CtrlP"
-"pelo visto n precisa mais disso em baixo quando usa o pathogen
-"set runtimepath^=~/.vim/bundle/ctrlp.vim
-"let g:ctrlp_map = '<c-p>'
-"let g:ctrlp_cmd = 'CtrlP'
-"let g:ctrlp_working_path_mode = 'rw'
-"
 "Prety command to search files trackeds and untrackeds by git. It stopes in folders that are
 "submodules, and I freaking love it!!!
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp -x node_modules']
@@ -85,10 +82,12 @@ set showtabline=2
 "vim-gitgutter
 "You can jump between hunks with [c and ]c. You can preview, stage, and revert
 "hunks with <leader>hp, <leader>hs, and <leader>hr respectively.
-"nmap ]h <Plug>GitGutterNextHunk
-"nmap [h <Plug>GitGutterPrevHunk
 set updatetime=250
-"let g:gitgutter_realtime = 0
+
+"easy-motion
+map / <Plug>(incsearch-easymotion-/)
+map ? <Plug>(incsearch-easymotion-?)
+map g/ <Plug>(incsearch-easymotion-stay)
 
 "Emmet setup
 "type <C-e>, to activate it
@@ -151,3 +150,4 @@ inoremap kj <ESC>
 
 "clean ExtraWhitespaces and save
 nmap W :%s/\s\+$//e<CR>:w<CR>
+nmap Q <C-w>q
