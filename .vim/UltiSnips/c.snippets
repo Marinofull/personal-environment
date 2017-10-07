@@ -3,7 +3,7 @@ snippet include "library include"
 endsnippet
 
 snippet main "main schema function"
-int main($1) {
+int main(${1:int argc, char *argv[]}) {
     ${2://code}
     return 0;
 }

@@ -40,3 +40,6 @@
 [submodule ".vim/bundle/vim-move"]
 	path = .vim/bundle/vim-move
 	url = https://github.com/matze/vim-move
+[submodule ".vim/bundle/editorconfig-vim"]
+	path = .vim/bundle/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim

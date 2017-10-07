@@ -13,5 +13,6 @@
 [color]
     ui = true
 [core]
-    editor = vim
+    editor = vim -c Spellit
     pager = less
+    excludesfile = ~/.gitignore_global

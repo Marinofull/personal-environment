@@ -67,7 +67,7 @@ colorscheme koehler
 "configura o plugin CtrlP"
 "Prety command to search files trackeds and untrackeds by git. It stopes in folders that are
 "submodules, and I freaking love it!!!
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp -x node_modules']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp -x node_modules -x tmp -x vendor -x log -x public']
 " git ls-files to list files of the repository, -c common files(tracked) -o
 " (other, untracked) -x (ignore files listed) *.swp(list all .swp)
 
@@ -124,6 +124,8 @@ autocmd FileType html set syntax=liquid
 "remap change tabs
 nnoremap <C-j> :tabprevious<CR>
 nnoremap <C-k> :tabnext<CR>
+nnoremap g<C-j> :tabm -1<CR>
+nnoremap g<C-k> :tabm +1<CR>
 
 
 "snippets
@@ -154,6 +156,7 @@ endfunction
 
 command! -nargs=1 -complete=file Hrename :call Hrename(<f-args>)
 
+command! Spellit execute "set spell spelllang=en,pt"
 
 "Altera o esc para um atalho rápido mais próximo"
 inoremap jj <ESC>
