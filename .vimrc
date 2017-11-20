@@ -29,13 +29,27 @@ execute pathogen#helptags()
 syntax on
 filetype plugin indent on
 
+" fix meta-keys which generate <Esc>a .. <Esc>z on gnome terminal
+set <A-k>=k
+set <A-j>=j
+nmap k <A-k>
+nmap j <A-j>
+vmap k <A-k>
+vmap j <A-j>
+
+"to make CTRL-A and CTRL-X work on non-alphanumeric ASCII values.
+set nrformats+=alpha
+
 "enable spell"
 "set spell spelllang=pt,en
 
 set t_Co=256
+set fileencodings+=utf-8
+set encoding=utf-8
 
-set number
-set hlsearch
+set nu
+set relativenumber
+set noic "don't ignore letter case, ex. in searching
 "highlight ExtraWhitespace ctermbg=red guibg=red
 "au ColorScheme * highlight ExtraWhitespace guibg=red
 
@@ -44,45 +58,54 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
+"retab
 
 "colorscheme desert
 "colorscheme ron
 colorscheme koehler
 
 "configura o plugin CtrlP"
-"pelo visto n precisa mais disso em baixo quando usa o pathogen
-"set runtimepath^=~/.vim/bundle/ctrlp.vim
-"let g:ctrlp_map = '<c-p>'
-"let g:ctrlp_cmd = 'CtrlP'
-"let g:ctrlp_working_path_mode = 'rw'
-"
 "Prety command to search files trackeds and untrackeds by git. It stopes in folders that are
 "submodules, and I freaking love it!!!
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp -x node_modules']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp -x node_modules -x tmp -x vendor -x log -x public']
 " git ls-files to list files of the repository, -c common files(tracked) -o
 " (other, untracked) -x (ignore files listed) *.swp(list all .swp)
 
 "vim airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'solarized'
-let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'molokai'
+"let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 set showtabline=2
 
 "vim-gitgutter
 "You can jump between hunks with [c and ]c. You can preview, stage, and revert
 "hunks with <leader>hp, <leader>hs, and <leader>hr respectively.
-"nmap ]h <Plug>GitGutterNextHunk
-"nmap [h <Plug>GitGutterPrevHunk
 set updatetime=250
-"let g:gitgutter_realtime = 0
+
+"easy-motion
+nmap /         <Plug>(easymotion-sn)
+omap /         <Plug>(easymotion-sn)
+xmap /         <Plug>(easymotion-sn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+" Move to line
+map <Leader>l <Plug>(easymotion-bd-jk)
+nmap <Leader>l <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+let g:EasyMotion_smartcase = 1
 
 "Emmet setup
 "type <C-e>, to activate it
 let g:user_emmet_install_global = 0
-autocmd FileType html,phtml,php,inc,md,mdown,css,scss EmmetInstall
 "Redefining Emmet trigger key
 let g:user_emmet_leader_key='<C-e>'
+autocmd FileType html,phtml,php,eruby,inc,md,mdown,css,scss EmmetInstall
 
 "vim-fugitive
 "remap the Gstatus command
@@ -101,6 +124,8 @@ autocmd FileType html set syntax=liquid
 "remap change tabs
 nnoremap <C-j> :tabprevious<CR>
 nnoremap <C-k> :tabnext<CR>
+nnoremap g<C-j> :tabm -1<CR>
+nnoremap g<C-k> :tabm +1<CR>
 
 
 "snippets
@@ -112,9 +137,30 @@ let g:UltiSnipsJumpBackwardTrigger="<c-g>"
 "split
 let g:UltiSnipsEditSplit="vertical"
 
+"My functions
+"===========
+
+"rename a file and still in the same buffer
+"If the file is versioned by Git and you have vim-fugitive, a better way is use:
+":Gmove new_name
+"In case it wasnt yet added to git repo type a :Gwrite before
+function Hrename(var)
+    let old_name = expand('%')
+    let new_name = a:var
+    if new_name != '' && new_name != old_name
+        bd
+        execute "!mv ".old_name." ".new_name
+        execute "e ".new_name
+    endif
+endfunction
+
+command! -nargs=1 -complete=file Hrename :call Hrename(<f-args>)
+
+command! Spellit execute "set spell spelllang=en,pt"
+
 "Altera o esc para um atalho rápido mais próximo"
-inoremap jk <ESC>
-inoremap kj <ESC>
+inoremap jj <ESC>
 
 "clean ExtraWhitespaces and save
 nmap W :%s/\s\+$//e<CR>:w<CR>
+nmap Q <C-w>q

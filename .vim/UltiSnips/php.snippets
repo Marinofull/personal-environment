@@ -4,13 +4,13 @@ endsnippet
 
 snippet @fun "Elixer prety function"
 @$1 ($2)
-	$3
+    $3
 @end$1
 endsnippet
 
 snippet @sec "Elixer Section"
 @section ('$1')
-	$2
+    $2
 @stop
 endsnippet
 
@@ -19,7 +19,15 @@ snippet @ext "Elixer Extends"
 endsnippet
 
 snippet func "Function or Method"
-${1:public} ${3:name}($4){
-	$5
+${1:public} function ${2:name}($3){
+    $4
 }
+endsnippet
+
+snippet doc "Docummented"
+/**
+ * ${1:Type its desciption here}
+ * @${2:var void}
+ * @return ${3:void}
+ */
 endsnippet
