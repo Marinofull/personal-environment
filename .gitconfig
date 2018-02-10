@@ -16,3 +16,5 @@
     editor = vim -c Spellit
     pager = less
     excludesfile = ~/.gitignore_global
+[commit]
+	gpgsign = true

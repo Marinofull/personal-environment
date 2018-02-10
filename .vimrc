@@ -50,6 +50,7 @@ set encoding=utf-8
 set nu
 set relativenumber
 set noic "don't ignore letter case, ex. in searching
+set colorcolumn=100
 "highlight ExtraWhitespace ctermbg=red guibg=red
 "au ColorScheme * highlight ExtraWhitespace guibg=red
 
@@ -120,6 +121,8 @@ nnoremap <Leader>p :InstantMarkdownPreview<CR>
 
 " syntax
 autocmd FileType html set syntax=liquid
+autocmd BufNewFile,BufReadPost *.axlsx set filetype=ruby
+autocmd BufNewFile,BufReadPost *.ino set filetype=cpp
 
 "remap change tabs
 nnoremap <C-j> :tabprevious<CR>
