@@ -39,6 +39,7 @@ vmap j <A-j>
 
 "to make CTRL-A and CTRL-X work on non-alphanumeric ASCII values.
 set nrformats+=alpha
+set tabpagemax=20
 
 "enable spell"
 "set spell spelllang=pt,en
