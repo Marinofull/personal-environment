@@ -24,6 +24,13 @@
 
 HOME = ENV['HOME']
 
+#class ToInstall
+#    def run(att)
+#        puts "#{att}"
+#        system "#{att}"
+#    end
+#end
+
 def are_you_sure?
     print "Are you sure? [y/N]: "
     %w[y Y].include?(gets.chop)
@@ -40,6 +47,10 @@ if are_you_sure?
     puts "git submodule update --init --recursive"
     system "git submodule update --init --recursive"
 end
+
+#class Submodules extend ToInstall
+#    @submodules = "git submodule update --init --recursive"
+#end
 
 puts "Would you like to install the default dotfiles like .vim, .tmux and some cool aliases?"
 if are_you_sure?
@@ -98,6 +109,11 @@ if are_you_sure?
     system  "cp -r .vim/tmp/vim-instant-markdown/after/ .vim/"
 end
 
+#class InstantMarkdonw extend ToInstall
+#    @install = "npm -g install instant-markdown-d"
+#    @replace = "cp -r .vim/tmp/vim-instant-markdown/after/ .vim/"
+#end
+
 system "mkdir -p tmp"
 
 # reorganizes the pathogen directory
@@ -132,3 +148,12 @@ if are_you_sure?
     puts    "mv 10-powerline-symbols.conf /etc/fonts/conf.d/"
     system  "sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/"
 end
+
+#class PowerlineDB extend ToInstall
+#    @install = "pip install --user powerline-status"
+#    @getFont = "wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf"
+#    @getConf = "wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf"
+#    @mvFont = "mv PowerlineSymbols.otf /usr/share/fonts/"
+#    @cacheIt = "fc-cache -vf /usr/share/fonts/"
+#    @mvConf = "mv 10-powerline-symbols.conf /etc/fonts/conf.d/"
+#end

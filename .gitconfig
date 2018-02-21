@@ -2,12 +2,14 @@
     name = Marinofull
     email = Marinofull@users.noreply.github.com
     username = Marinofull
+	signingkey = 5333B41BC8940B01
 
 [alias]
     lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
     lg2 = log --graph --format=format:'%C(bold blue)%h - %C(bold cyan)%aD %C(bold green)(%ar)%C(yellow)%d%n       %C(bold white)%an%C(reset) - %s ' --all
     lg = !"git lg2"
     myself = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''      %C(bold white) %an%C(reset) - %C(white)%s%C(reset)'
+	checkoutback = checkout @{-1}
 [diff]
     guitool = meld
 [color]
@@ -16,3 +18,5 @@
     editor = vim -c Spellit
     pager = less
     excludesfile = ~/.gitignore_global
+[commit]
+	gpgsign = true
