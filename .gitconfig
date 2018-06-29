@@ -20,3 +20,10 @@
     excludesfile = ~/.gitignore_global
 [commit]
 	gpgsign = true
+[merge]
+	tool = meld
+[mergetool "diffconflicts"]
+	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+	trustExitCode = true
+[mergetool]
+	keepBackup = false

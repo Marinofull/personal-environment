@@ -5,3 +5,4 @@
 #vimspell () { vim -c 'set spell spelllang=pt,en'; }
 alias vimspell="vim -c 'set spell spelllang=pt,en'"
 alias tinker="rlwrap php artisan tinker"
+alias grep='grep --color=auto'

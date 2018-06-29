@@ -11,6 +11,7 @@ extract() {
         case $1 in
             *.tar.bz2)  tar xvjf $1      ;;
             *.tar.gz)   tar xvzf $1      ;;
+            *.tar.xz)   tar -Jxvf $1     ;;
             *.bz2)      bunzip2 -k $1      ;;
             *.rar)      unrar x $1      ;;
             *.gz)       gunzip -k $1       ;;
@@ -88,6 +89,11 @@ copy() {
 # paca formmat: hh:mm:ss
 corte() {
     avconv -i $1 -vcodec copy -acodec copy -ss $2 -t $3 $4
+}
+
+# get video height and width measures
+ff-measures() {
+    ffprobe -v quiet  -show_streams $1 | grep 'coded'
 }
 
 runflux() {

@@ -2,3 +2,4 @@
 .vim/autoload/pathogen.vim
 .vim/.netrwhist
 .vim/after
+.vim/undodir/%*
