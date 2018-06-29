@@ -56,11 +56,14 @@ set colorcolumn=100
 "au ColorScheme * highlight ExtraWhitespace guibg=red
 
 "Convert tab to spaces and indent w/ same number of spaces
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent
 "retab
+
+set undofile "persistent undo
+set undodir=~/.vim/undodir
 
 "colorscheme desert
 "colorscheme ron
