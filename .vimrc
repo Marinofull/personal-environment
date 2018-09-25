@@ -37,6 +37,12 @@ nmap j <A-j>
 vmap k <A-k>
 vmap j <A-j>
 
+" give imode the arrows vim
+imap <C-h> OD
+imap <C-j> OB
+imap <C-l> OC
+imap <C-k> OA
+
 "to make CTRL-A and CTRL-X work on non-alphanumeric ASCII values.
 set nrformats+=alpha
 set tabpagemax=20
@@ -56,11 +62,14 @@ set colorcolumn=100
 "au ColorScheme * highlight ExtraWhitespace guibg=red
 
 "Convert tab to spaces and indent w/ same number of spaces
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent
 "retab
+
+set undofile "persistent undo
+set undodir=~/.vim/undodir
 
 "colorscheme desert
 "colorscheme ron
@@ -75,7 +84,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp -x node_
 
 "vim airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'qwq'
 "let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 set showtabline=2
@@ -118,7 +127,7 @@ nnoremap <Leader>cm :Gcommit<CR>
 "Markdown to HTML
 "nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
 let g:instant_markdown_autostart = 0
-nnoremap <Leader>p :InstantMarkdownPreview<CR>
+nnoremap <Leader>m :InstantMarkdownPreview<CR>
 
 " syntax
 autocmd FileType html set syntax=liquid
@@ -162,8 +171,26 @@ command! -nargs=1 -complete=file Hrename :call Hrename(<f-args>)
 
 command! Spellit execute "set spell spelllang=en,pt"
 
+" Personal macro used in opening PR using hub cli
+let @c = 'dddf:.4~f-l~:s/-/ /gf r-ojjo'
+" Personal macro to turn a {} block in a do end in ruby fixing the contained  code
+let @d = 'vi{yda{beladoendjjO0jj=='
+" turn do end block in a {}
+let @f = '?dodwa{[3~jj/endnndwa}jjV%J'
+" turn CamelCalse to snake_case
+let @l='viwþs/\([A-Z]\)/_\L\1/g^M^Odl'
+
+" change p from ""p to "0p and never lose lasp pasted thing
+nnoremap <leader>p "0p
+vnoremap <leader>p "0p
+nnoremap <leader>P "0P
+vnoremap <leader>P "0P
+
 "Altera o esc para um atalho rápido mais próximo"
 inoremap jj <ESC>
+"Altera colon para AltGr p
+nmap þ :
+vmap þ :
 
 "clean ExtraWhitespaces and save
 nmap W :%s/\s\+$//e<CR>:w<CR>

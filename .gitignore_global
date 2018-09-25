@@ -1,1 +1,5 @@
+# an option local folder to store drafts
+mystuffs/
+
 .editorconfig
+.rspec
