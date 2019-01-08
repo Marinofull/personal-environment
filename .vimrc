@@ -72,13 +72,13 @@ set undofile "persistent undo
 set undodir=~/.vim/undodir
 
 "colorscheme desert
-"colorscheme ron
-colorscheme koehler
+"colorscheme koehler
+colorscheme default
 
 "configura o plugin CtrlP"
 "Prety command to search files trackeds and untrackeds by git. It stopes in folders that are
 "submodules, and I freaking love it!!!
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp -x node_modules -x tmp -x vendor -x log -x public']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp -x node_modules -x tmp -x vendor -x log -x public -x storage']
 " git ls-files to list files of the repository, -c common files(tracked) -o
 " (other, untracked) -x (ignore files listed) *.swp(list all .swp)
 
@@ -172,7 +172,7 @@ command! -nargs=1 -complete=file Hrename :call Hrename(<f-args>)
 command! Spellit execute "set spell spelllang=en,pt"
 
 " Personal macro used in opening PR using hub cli
-let @c = 'dddf:.4~f-l~:s/-/ /gf r-ojjo'
+let @c = 'dddf:.4~f-l~:s/-/ /gf r-ojjo- [Jira Ticket](https://kaeferdpms.atlassian.net/browse/jjggyEjjAjjhpO'
 " Personal macro to turn a {} block in a do end in ruby fixing the contained  code
 let @d = 'vi{yda{beladoendjjO0jj=='
 " turn do end block in a {}
@@ -180,7 +180,7 @@ let @f = '?dodwa{[3~jj/endnndwa}jjV%J'
 " turn CamelCalse to snake_case
 let @l='viwþs/\([A-Z]\)/_\L\1/g^M^Odl'
 
-" change p from ""p to "0p and never lose lasp pasted thing
+" \p to "0p and never lose last pasted thing
 nnoremap <leader>p "0p
 vnoremap <leader>p "0p
 nnoremap <leader>P "0P
