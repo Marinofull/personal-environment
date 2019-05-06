@@ -15,7 +15,7 @@ Plugins
 
 - [powerline](http://www.tecmint.com/powerline-adds-powerful-statuslines-and-prompts-to-vim-and-bash/)
 
-####Vim Plugins
+#### Vim Plugins
 
 - Emmet-vim:
     - Expand an Abbreviation. Type the abbreviation as `div>p#foo$*3>a` and type `<c-e>,`;
