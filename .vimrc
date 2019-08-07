@@ -55,7 +55,7 @@ set fileencodings+=utf-8
 set encoding=utf-8
 
 set nu
-set relativenumber
+" set relativenumber
 set noic "don't ignore letter case, ex. in searching
 set colorcolumn=100
 "highlight ExtraWhitespace ctermbg=red guibg=red
@@ -71,9 +71,8 @@ set autoindent
 set undofile "persistent undo
 set undodir=~/.vim/undodir
 
-"colorscheme desert
-"colorscheme koehler
-colorscheme default
+colorscheme desert
+"colorscheme morning
 
 "configura o plugin CtrlP"
 "Prety command to search files trackeds and untrackeds by git. It stopes in folders that are
@@ -169,10 +168,16 @@ endfunction
 
 command! -nargs=1 -complete=file Hrename :call Hrename(<f-args>)
 
+" to git mergetool
+" nmap <leader>k :diffg RE<CR>
+" nmap <leader>j :diffg BA<CR>
+" nmap <leader>h :diffg LO<CR>
+
 command! Spellit execute "set spell spelllang=en,pt"
 
 " Personal macro used in opening PR using hub cli
-let @c = 'dddf:.4~f-l~:s/-/ /gf r-ojjo- [Jira Ticket](https://kaeferdpms.atlassian.net/browse/jjggyEjjAjjhpO'
+" let @c = 'dddf:.4~f-l~:s/-/ /gf r-ojjo- [Jira Ticket](https://kaeferdpms.atlassian.net/browse/jjggyEjjAjjhpO'
+let @c = '14jf:;wwwviwykkAjjviwpa)jj0dlr[eeer]lr(jj0f:;lv$yggVP4~V:s/-/ /g^Mwhr-ww~'
 " Personal macro to turn a {} block in a do end in ruby fixing the contained  code
 let @d = 'vi{yda{beladoendjjO0jj=='
 " turn do end block in a {}
@@ -188,6 +193,7 @@ vnoremap <leader>P "0P
 
 "Altera o esc para um atalho rápido mais próximo"
 inoremap jj <ESC>
+cnoremap jj <ESC>
 "Altera colon para AltGr p
 nmap þ :
 vmap þ :

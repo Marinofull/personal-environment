@@ -4,11 +4,16 @@
   username = Marinofull
   signingkey = 5333B41BC8940B01
 
+# colors
+# normal, black, red, green, yellow, blue, magenta, cyan and white.
+# The accepted attributes are bold, dim, ul, blink, reverse, italic, and strike
 [alias]
-  lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold dim blue)%h - %C(bold green)(%ar) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
   lg2 = log --graph --format=format:'%C(bold blue)%h - %C(bold cyan)%aD %C(bold green)(%ar)%C(yellow)%d%n       %C(bold white)%an%C(reset) - %s ' --all
   lg = !"git lg2"
   myself = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''      %C(bold white) %an%C(reset) - %C(white)%s%C(reset)'
+  stash-no-sign = !"git -c commit.gpgsign=false stash"
+  update = !"git fetch upstream && git -c commit.gpgsign=false merge upstream/master -m 'Merge upstream/master'"
 [diff]
   guitool = meld
 [color]
@@ -27,4 +32,4 @@
 [mergetool]
   keepBackup = false
 [push]
-	default = simple
+  default = simple

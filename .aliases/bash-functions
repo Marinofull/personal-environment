@@ -84,11 +84,22 @@ copy() {
 
 # video clipper, requires avconv package
 # usage:
-# $ corte input.ext daqui paca output.ext
-# daqui formmat: hh:mm:ss
-# paca formmat: hh:mm:ss
+# $ corte input.ext start end output.ext
+# start formmat: hh:mm:ss
+# end formmat: hh:mm:ss
 corte() {
     avconv -i $1 -vcodec copy -acodec copy -ss $2 -t $3 $4
+}
+
+# It will compress and convert to gif, showing the intermediaries sizes
+# Usage:
+# Videto2gif file output
+videto2gif() {
+  ls -lh $1;
+  ffmpeg -i $1 -s 680x400 -vcodec h264 inter.mp4;
+  ls -lh inter.mp4;
+  ffmpeg -i inter.mp4 -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=10 > "$2.gif";
+  ls -lh "$2.gif";
 }
 
 # get video height and width measures
