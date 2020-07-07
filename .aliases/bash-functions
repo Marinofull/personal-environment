@@ -30,6 +30,11 @@ extract() {
     fi
 }
 
+clean-temp-files() {
+  find . -name \*\swp | xargs rm
+  find . -name \*\swo | xargs rm
+}
+
 psgrep() {
   if [ ! -z $1 ] ; then
       echo "Grepping for processes matching $1..."

@@ -116,7 +116,7 @@ let g:EasyMotion_smartcase = 1
 let g:user_emmet_install_global = 0
 "Redefining Emmet trigger key
 let g:user_emmet_leader_key='<C-e>'
-autocmd FileType html,phtml,php,eruby,inc,md,mdown,css,scss EmmetInstall
+autocmd FileType javascript,js,jsx,html,phtml,php,eruby,inc,md,mdown,css,scss EmmetInstall
 
 "vim-fugitive
 "remap the Gstatus command
@@ -172,7 +172,6 @@ command! -nargs=1 -complete=file Hrename :call Hrename(<f-args>)
 command! Spellit execute "set spell spelllang=en,pt"
 
 " Personal macro used in opening PR using hub cli
-let @c = 'dddf:.4~f-l~:s/-/ /gf r-ojjo'
 " Personal macro to turn a {} block in a do end in ruby fixing the contained  code
 let @d = 'vi{yda{beladoendjjO0jj=='
 " turn do end block in a {}
@@ -180,6 +179,8 @@ let @f = '?dodwa{[3~jj/endnndwa}jjV%J'
 " turn CamelCalse to snake_case
 let @l='viwþs/\([A-Z]\)/_\L\1/g^M^Odl'
 
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
 " change p from ""p to "0p and never lose lasp pasted thing
 nnoremap <leader>p "0p
 vnoremap <leader>p "0p
@@ -192,6 +193,9 @@ inoremap jj <ESC>
 nmap þ :
 vmap þ :
 
+nmap Q <C-w>q
+nmap <Leader>Q :mksession! .session.vim<CR>:qa<CR>
+nmap <Leader>o :source .session.vim<CR>
+
 "clean ExtraWhitespaces and save
 nmap W :%s/\s\+$//e<CR>:w<CR>
-nmap Q <C-w>q
