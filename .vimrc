@@ -40,6 +40,7 @@ vmap j <A-j>
 " give imode the arrows vim
 imap <C-h> OD
 imap <C-j> OB
+imap <C-h> OD
 imap <C-l> OC
 imap <C-k> OA
 
@@ -140,6 +141,10 @@ nnoremap <C-k> :tabnext<CR>
 nnoremap g<C-j> :tabm -1<CR>
 nnoremap g<C-k> :tabm +1<CR>
 
+"scroll through time instead of space
+set mouse=a
+map <ScrollWheelUp> g-
+map <ScrollWheelDown> g+
 
 "snippets
 "let g:UltiSnipsUsePythonVersion=2
