@@ -195,6 +195,7 @@ vnoremap <leader>P "0P
 "Altera o esc para um atalho rápido mais próximo"
 inoremap jj <ESC>
 "Altera colon para AltGr p
+imap þ :
 nmap þ :
 vmap þ :
 

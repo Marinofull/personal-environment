@@ -1,0 +1,34 @@
+#! /bin/bash
+
+dpmsrun() {
+  #EXPORTATIONS = "export GEM_PATH=$GEM_PATH; export GEM_HOME=$GEM_HOME"
+  #local variables are not working on command string concat
+  cd $HOME/workspace/kaefer/dpms-rails
+  docker start mysql-container redis
+  tmux new-window -n "rails" "export GEM_PATH=$GEM_PATH; export GEM_HOME=$GEM_HOME; vim; bash"
+  tmux split-window -t :"rails" "export GEM_PATH=$GEM_PATH; export GEM_HOME=$GEM_HOME; rails s; bash"
+  tmux split-window -t :"rails" -h "export GEM_PATH=$GEM_PATH; export GEM_HOME=$GEM_HOME; sidekiq -q sidekiq-queue; bash"
+  cd $HOME/workspace/kaefer/dpms-react
+  tmux new-window -n "react" "export GEM_PATH=$GEM_PATH; export GEM_HOME=$GEM_HOME; vim; bash"
+  tmux split-window -t :"react" "export GEM_PATH=$GEM_PATH; export GEM_HOME=$GEM_HOME; rails s -p 3002; bash"
+  tmux split-window -t :"react" -h -p 66 "export GEM_PATH=$GEM_PATH; export GEM_HOME=$GEM_HOME; sass --watch --sourcemap=none app/assets/stylesheets:app/javascript/packs/static/css; bash"
+  tmux split-window -t :"react" -h "yarn snowpack dev --reload; bash"
+  cat ../mystuff/servers
+  cat ../mystuff/chaves
+}
+
+niltera() {
+  cd $HOME/workspace/kaefer/dpms-react
+  tmux new-window -n "react" "bash -c 'vim'"
+  tmux split-window -t :"react" -v  "bash -c 'sass --watch app/assets/stylesheets/:app/javascript/packs/static/css/; read'"
+  tmux split-window -t :"react" -h  "bash -c 'rails s -p 3030; read'"
+  tmux split-window -t :"react" -v  "bash -c 'yarn snowpack dev --reload; read'"
+}
+
+translate() {
+  i18n-tasks translate-missing --from en de, es, fr, nb, pt-BR
+}
+translate-react() {
+  translate
+  rake i18n:js:export
+}
