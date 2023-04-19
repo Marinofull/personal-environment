@@ -1,11 +1,14 @@
 #! /bin/bash
 
+eval "$(gh completion -s bash)"
+
 dpmsrun() {
   #EXPORTATIONS = "export GEM_PATH=$GEM_PATH; export GEM_HOME=$GEM_HOME"
   #local variables are not working on command string concat
   cd $HOME/workspace/kaefer/dpms-rails
-  docker start mysql-container redis
+  docker start mysql-unified redis
   tmux new-window -n "rails" "export GEM_PATH=$GEM_PATH; export GEM_HOME=$GEM_HOME; vim; bash"
+  # tmux split-window -t :"rails" "export GEM_PATH=$GEM_PATH; export GEM_HOME=$GEM_HOME; CROSS_DOMAIN_COOKIES=true thin start --ssl -p 3000 -a 127.0.0.1; bash"
   tmux split-window -t :"rails" "export GEM_PATH=$GEM_PATH; export GEM_HOME=$GEM_HOME; rails s; bash"
   tmux split-window -t :"rails" -h "export GEM_PATH=$GEM_PATH; export GEM_HOME=$GEM_HOME; sidekiq -q sidekiq-queue; bash"
   cd $HOME/workspace/kaefer/dpms-react
@@ -26,9 +29,10 @@ niltera() {
 }
 
 translate() {
-  i18n-tasks translate-missing --from en de, es, fr, nb, pt-BR
+  i18n-tasks translate-missing --from en de, es, fr, nb, pt-BR, zh-CN, th
 }
 translate-react() {
   translate
   rake i18n:js:export
+  sed -i "s/\b'\b/’/g" config/locales/fr.yml # Replace ' to ’ in french
 }
