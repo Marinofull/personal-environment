@@ -117,7 +117,7 @@ let g:EasyMotion_smartcase = 1
 let g:user_emmet_install_global = 0
 "Redefining Emmet trigger key
 let g:user_emmet_leader_key='<C-e>'
-autocmd FileType javascript,js,jsx,html,phtml,php,eruby,inc,md,mdown,css,scss EmmetInstall
+autocmd FileType javascript,js,ts,jsx,html,phtml,php,eruby,inc,md,mdown,css,scss EmmetInstall
 
 "vim-fugitive
 "remap the Gstatus command

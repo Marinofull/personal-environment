@@ -31,8 +31,15 @@ niltera() {
 translate() {
   i18n-tasks translate-missing --from en de, es, fr, nb, pt-BR, zh-CN, th
 }
+fix-french() {
+  sed -i "s/\b'\b/’/g" config/locales/fr.yml # Replace ' to ’ in french
+}
+translate-back() {
+  translate
+  fix-french
+}
 translate-react() {
   translate
   rake i18n:js:export
-  sed -i "s/\b'\b/’/g" config/locales/fr.yml # Replace ' to ’ in french
+  fix-french
 }

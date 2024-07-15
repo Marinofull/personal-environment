@@ -4,3 +4,6 @@ for BASHES in $(ls ~/.aliases/bash-*)
 do
     [ -f "$BASHES" ] && source "$BASHES"
 done
+#. /usr/share/.asdf/asdf.sh
+#. /usr/share/.asdf/completions/asdf.bash
+eval "$(gh completion -s bash)"
