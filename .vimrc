@@ -75,6 +75,8 @@ set undodir=~/.vim/undodir
 "colorscheme desert
 "colorscheme ron
 colorscheme koehler
+" Set background to transparent
+highlight Normal ctermbg=none
 
 "configura o plugin CtrlP"
 "Prety command to search files trackeds and untrackeds by git. It stopes in folders that are
@@ -145,15 +147,6 @@ nnoremap g<C-k> :tabm +1<CR>
 set mouse=a
 map <ScrollWheelUp> g-
 map <ScrollWheelDown> g+
-
-"snippets
-"let g:UltiSnipsUsePythonVersion=2
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-g>"
-
-"split
-let g:UltiSnipsEditSplit="vertical"
 
 "My functions
 "===========
