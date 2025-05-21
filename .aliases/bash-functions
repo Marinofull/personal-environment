@@ -104,3 +104,16 @@ ff-measures() {
 runflux() {
     xflux -l 0 -g 0 -k 3400 # flux
 }
+
+# knock 10 20 server.com
+knock() {
+
+  PORTS=${@:1:$#-1}
+  SERVER=${@: -1}
+
+  echo $PORTS
+  echo server
+  echo $SERVER
+
+  for p in $PORTS; do nmap -Pn --max-retries 0 -p $p $SERVER; sleep 1; done
+}
