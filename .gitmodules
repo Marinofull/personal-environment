@@ -49,3 +49,6 @@
 [submodule ".vim/bundle/SQLUtilities"]
 	path = .vim/bundle/SQLUtilities
 	url = https://github.com/vim-scripts/SQLUtilities
+[submodule ".vim/pack/Exafunction/start/windsurf.vim"]
+	path = .vim/pack/Exafunction/start/windsurf.vim
+	url = https://github.com/Exafunction/windsurf.vim
