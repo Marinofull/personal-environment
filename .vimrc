@@ -148,6 +148,12 @@ set mouse=a
 map <ScrollWheelUp> g-
 map <ScrollWheelDown> g+
 
+" Window Resizing Commands
+" To increase window height by 5 lines: 5<C-W>+
+" To decrease window height by 5 lines: 5<C-W>-
+" To increase window width by 5 columns: 5<C-W>>
+" To decrease window width by 5 columns: 5<C-W><
+
 "My functions
 "===========
 
