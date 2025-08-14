@@ -43,3 +43,18 @@ translate-react() {
   rake i18n:js:export
   fix-french
 }
+
+# Claude 3.7 Sonnet
+claude_sonnet7() {
+  claude --model claude-3-7-sonnet-latest "$@"
+}
+
+# Claude 3.5 Sonnet
+claude_sonnet5() {
+  claude --model claude-3-5-sonnet-latest "$@"
+}
+
+# Claude 3.5 Haiku
+claude_haiku() {
+  claude --model claude-3-5-haiku-latest "$@"
+}
