@@ -7,3 +7,4 @@ alias vimspell="vim -c 'set spell spelllang=pt,en'"
 alias tinker="rlwrap php artisan tinker"
 alias grep='grep --color=auto'
 alias dotfile="cd $HOME/.dotfiles"
+alias gopassrepo="cd $HOME/.local/share/gopass/stores/root"
