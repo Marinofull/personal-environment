@@ -6,4 +6,5 @@ do
 done
 #. /usr/share/.asdf/asdf.sh
 #. /usr/share/.asdf/completions/asdf.bash
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 eval "$(gh completion -s bash)"

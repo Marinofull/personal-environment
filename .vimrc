@@ -68,6 +68,10 @@ set shiftwidth=2
 set expandtab
 set autoindent
 "retab
+" Python: continuação com 2 espaços (dentro de (), [], {})
+let g:pyindent_open_paren = 2
+let g:pyindent_nested_paren = 2
+let g:pyindent_continue = 2
 
 set undofile "persistent undo
 set undodir=~/.vim/undodir

@@ -22,7 +22,7 @@
 [commit]
   gpgsign = true
 [merge]
-  tool = meld
+  tool = vimdiff
 [mergetool "diffconflicts"]
   cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
   trustExitCode = true
