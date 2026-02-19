@@ -1,0 +1,4 @@
+interface:
+  display_name: "Capability Proof Checker"
+  short_description: "Validate capability claims with evidence and tests."
+  default_prompt: "Analyze what is possible in this project and prove uncertain behavior via code-path backtracking or focused automated tests."

@@ -97,6 +97,44 @@ if are_you_sure?
     end
 end
 
+puts "Would you like to install Codex skills into ~/.codex/skills?"
+if are_you_sure?
+    skills_home = "#{HOME}/.codex/skills"
+    skills_root = "#{Dir.pwd}/codex_skills"
+
+    if !File.directory?(skills_home)
+        system "mkdir #{skills_home}"
+    end
+
+    skills = []
+    if File.directory?(skills_root)
+        skills = Dir.children(skills_root).select do |entry|
+            File.directory?("#{skills_root}/#{entry}")
+        end
+    end
+
+    skills.each do |skill|
+        dest = "#{skills_home}/#{skill}"
+        orig = "#{skills_root}/#{skill}"
+
+        if File.directory?(dest) || File.symlink?(dest) || File.file?(dest)
+            puts "#{dest} exists and will be erased."
+            if are_you_sure?
+                system "mkdir -p backup/"
+                puts "cp -R #{dest} backup/"
+                system "cp -R #{dest} backup/"
+                puts "rm -Rf #{dest}"
+                system "rm -Rf #{dest}"
+                puts "Creating symlink #{dest} -> #{orig}"
+                File.symlink(orig, dest)
+            end
+        else
+            puts "Creating symlink #{dest} -> #{orig}"
+            File.symlink(orig, dest)
+        end
+    end
+end
+
 puts "Do you want to install the Instant-Markdown plugin?"
 puts "This is a plugins not tracked by pathogen and require Node.js and xdg-utils package, type y if you want to procede"
 if are_you_sure?
