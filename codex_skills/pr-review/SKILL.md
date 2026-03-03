@@ -1,6 +1,6 @@
 ---
 name: pr-review
-description: Review pull requests using only `git diff origin/main` as the diff command (run exactly that, no other diff variants). Use to critique changes for clean code issues (overengineering, SRP/DRY/KISS violations, nested conditionals, null-safety misuse, poor naming), plus framework/language misconceptions by cross-checking repository docs (README, conventions) and the surrounding code context. Use when a user asks to review a PR and may provide an intended goal via a `#blabla` placeholder to replace.
+description: Review pull requests using only `git diff origin/main`  or `origin/master` as the diff command. Use to critique changes for clean code issues (overengineering, SRP/DRY/KISS violations, nested conditionals, null-safety misuse, poor naming), plus framework/language misconceptions by cross-checking repository docs (README, conventions) and the surrounding code context. Use when a user asks to review a PR and may provide an intended goal via a `#blabla` placeholder to replace.
 ---
 
 # PR Clean Code Review
@@ -45,6 +45,6 @@ description: Review pull requests using only `git diff origin/main` as the diff 
 
 ## Example Prompts
 
-- Run `git diff origin/main`, no other diff command, and review this PR for SRP/DRY/KISS and overengineering.
+- Run `git diff origin/main`, and review this PR for SRP/DRY/KISS and overengineering.
 - Run `git diff origin/main`, review this PR. This PR is supposedly to do: Improve task retry semantics for Airflow DAGs.
 - Run `git diff origin/main`, review this PR. This PR is supposedly to do: #blabla
