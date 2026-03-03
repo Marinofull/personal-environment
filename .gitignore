@@ -1,3 +1,4 @@
+.aliases/bash-local
 *.swp
 .vim/autoload/pathogen.vim
 .vim/.netrwhist
