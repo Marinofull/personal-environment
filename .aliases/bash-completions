@@ -145,3 +145,7 @@ _asdf() {
 }
 
 complete -F _asdf asdf
+
+if [ -f /usr/share/bash-completion/completions/pass-otp ]; then
+  source /usr/share/bash-completion/completions/pass-otp
+fi
