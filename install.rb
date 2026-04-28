@@ -117,7 +117,9 @@ if are_you_sure?
         dest = "#{skills_home}/#{skill}"
         orig = "#{skills_root}/#{skill}"
 
-        if File.directory?(dest) || File.symlink?(dest) || File.file?(dest)
+        if File.symlink?(dest) && File.readlink(dest) == orig
+            puts "Skipping #{dest} (already linked correctly)"
+        elsif File.directory?(dest) || File.symlink?(dest) || File.file?(dest)
             puts "#{dest} exists and will be erased."
             if are_you_sure?
                 system "mkdir -p backup/"
@@ -151,6 +153,44 @@ if are_you_sure?
 
     skills.each do |skill|
         dest = "#{copilot_skills_home}/#{skill}"
+        orig = "#{skills_root}/#{skill}"
+
+        if File.symlink?(dest) && File.readlink(dest) == orig
+            puts "Skipping #{dest} (already linked correctly)"
+        elsif File.directory?(dest) || File.symlink?(dest) || File.file?(dest)
+            puts "#{dest} exists and will be erased."
+            if are_you_sure?
+                system "mkdir -p backup/"
+                puts "cp -R #{dest} backup/"
+                system "cp -R #{dest} backup/"
+                puts "rm -Rf #{dest}"
+                system "rm -Rf #{dest}"
+                puts "Creating symlink #{dest} -> #{orig}"
+                File.symlink(orig, dest)
+            end
+        else
+            puts "Creating symlink #{dest} -> #{orig}"
+            File.symlink(orig, dest)
+        end
+    end
+end
+
+puts "Would you like to install Claude Code skills into ~/.claude/commands/?"
+if are_you_sure?
+    claude_commands_home = "#{HOME}/.claude/commands"
+    skills_root = "#{Dir.pwd}/codex_skills"
+
+    system "mkdir -p #{claude_commands_home}"
+
+    skills = []
+    if File.directory?(skills_root)
+        skills = Dir.children(skills_root).select do |entry|
+            File.directory?("#{skills_root}/#{entry}")
+        end
+    end
+
+    skills.each do |skill|
+        dest = "#{claude_commands_home}/#{skill}"
         orig = "#{skills_root}/#{skill}"
 
         if File.symlink?(dest) && File.readlink(dest) == orig
