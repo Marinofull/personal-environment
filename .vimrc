@@ -85,7 +85,7 @@ highlight Normal ctermbg=none
 "configura o plugin CtrlP"
 "Prety command to search files trackeds and untrackeds by git. It stopes in folders that are
 "submodules, and I freaking love it!!!
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp -x node_modules -x tmp -x vendor -x log -x public']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -cox *.swp -x node_modules -x tmp -x vendor -x log -x public -x .idea/ -x .venv/ -x *__pycache__*']
 " git ls-files to list files of the repository, -c common files(tracked) -o
 " (other, untracked) -x (ignore files listed) *.swp(list all .swp)
 
