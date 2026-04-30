@@ -52,3 +52,6 @@
 [submodule ".vim/pack/Exafunction/start/windsurf.vim"]
 	path = .vim/pack/Exafunction/start/windsurf.vim
 	url = https://github.com/Exafunction/windsurf.vim
+[submodule "caveman_skill"]
+	path = caveman_skill
+	url = https://github.com/juliusbrussee/caveman

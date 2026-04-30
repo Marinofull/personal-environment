@@ -23,6 +23,10 @@
 #Special thanks to dotfiles from Nilton Vasques <github.com/niltonvasques/dotfiles>
 
 HOME = ENV['HOME']
+DOTFILES_ROOT = Dir.pwd
+
+load "#{DOTFILES_ROOT}/installer/skills.rb"
+load "#{DOTFILES_ROOT}/installer/ai_agents.rb"
 
 #class ToInstall
 #    def run(att)
@@ -97,121 +101,14 @@ if are_you_sure?
     end
 end
 
-puts "Would you like to install Codex skills into ~/.codex/skills?"
-if are_you_sure?
-    skills_home = "#{HOME}/.codex/skills"
-    skills_root = "#{Dir.pwd}/codex_skills"
+skills_root = "#{DOTFILES_ROOT}/skills"
 
-    if !File.directory?(skills_home)
-        system "mkdir #{skills_home}"
-    end
-
-    skills = []
-    if File.directory?(skills_root)
-        skills = Dir.children(skills_root).select do |entry|
-            File.directory?("#{skills_root}/#{entry}")
-        end
-    end
-
-    skills.each do |skill|
-        dest = "#{skills_home}/#{skill}"
-        orig = "#{skills_root}/#{skill}"
-
-        if File.symlink?(dest) && File.readlink(dest) == orig
-            puts "Skipping #{dest} (already linked correctly)"
-        elsif File.directory?(dest) || File.symlink?(dest) || File.file?(dest)
-            puts "#{dest} exists and will be erased."
-            if are_you_sure?
-                system "mkdir -p backup/"
-                puts "cp -R #{dest} backup/"
-                system "cp -R #{dest} backup/"
-                puts "rm -Rf #{dest}"
-                system "rm -Rf #{dest}"
-                puts "Creating symlink #{dest} -> #{orig}"
-                File.symlink(orig, dest)
-            end
-        else
-            puts "Creating symlink #{dest} -> #{orig}"
-            File.symlink(orig, dest)
-        end
-    end
-end
-
-puts "Would you like to install Copilot CLI skills into ~/.copilot/skills/?"
-if are_you_sure?
-    copilot_skills_home = "#{HOME}/.copilot/skills"
-    skills_root = "#{Dir.pwd}/codex_skills"
-
-    system "mkdir -p #{copilot_skills_home}"
-
-    skills = []
-    if File.directory?(skills_root)
-        skills = Dir.children(skills_root).select do |entry|
-            File.directory?("#{skills_root}/#{entry}")
-        end
-    end
-
-    skills.each do |skill|
-        dest = "#{copilot_skills_home}/#{skill}"
-        orig = "#{skills_root}/#{skill}"
-
-        if File.symlink?(dest) && File.readlink(dest) == orig
-            puts "Skipping #{dest} (already linked correctly)"
-        elsif File.directory?(dest) || File.symlink?(dest) || File.file?(dest)
-            puts "#{dest} exists and will be erased."
-            if are_you_sure?
-                system "mkdir -p backup/"
-                puts "cp -R #{dest} backup/"
-                system "cp -R #{dest} backup/"
-                puts "rm -Rf #{dest}"
-                system "rm -Rf #{dest}"
-                puts "Creating symlink #{dest} -> #{orig}"
-                File.symlink(orig, dest)
-            end
-        else
-            puts "Creating symlink #{dest} -> #{orig}"
-            File.symlink(orig, dest)
-        end
-    end
-end
-
-puts "Would you like to install Claude Code skills into ~/.claude/commands/?"
-if are_you_sure?
-    claude_commands_home = "#{HOME}/.claude/commands"
-    skills_root = "#{Dir.pwd}/codex_skills"
-
-    system "mkdir -p #{claude_commands_home}"
-
-    skills = []
-    if File.directory?(skills_root)
-        skills = Dir.children(skills_root).select do |entry|
-            File.directory?("#{skills_root}/#{entry}")
-        end
-    end
-
-    skills.each do |skill|
-        dest = "#{claude_commands_home}/#{skill}"
-        orig = "#{skills_root}/#{skill}"
-
-        if File.symlink?(dest) && File.readlink(dest) == orig
-            puts "Skipping #{dest} (already linked correctly)"
-        elsif File.directory?(dest) || File.symlink?(dest) || File.file?(dest)
-            puts "#{dest} exists and will be erased."
-            if are_you_sure?
-                system "mkdir -p backup/"
-                puts "cp -R #{dest} backup/"
-                system "cp -R #{dest} backup/"
-                puts "rm -Rf #{dest}"
-                system "rm -Rf #{dest}"
-                puts "Creating symlink #{dest} -> #{orig}"
-                File.symlink(orig, dest)
-            end
-        else
-            puts "Creating symlink #{dest} -> #{orig}"
-            File.symlink(orig, dest)
-        end
-    end
-end
+install_skills("#{HOME}/.codex/skills", "Codex", skills_root)
+install_skills("#{HOME}/.copilot/skills", "Copilot CLI", skills_root)
+install_skills("#{HOME}/.claude/commands", "Claude Code commands", skills_root)
+install_claude_settings(DOTFILES_ROOT)
+install_codex_settings(DOTFILES_ROOT)
+install_copilot_settings(DOTFILES_ROOT)
 
 puts "Do you want to install the Instant-Markdown plugin?"
 puts "This is a plugins not tracked by pathogen and require Node.js and xdg-utils package, type y if you want to procede"
